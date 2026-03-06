@@ -1,0 +1,175 @@
+Best hyper-parameters find by Leave-One-Out cross-validator:
+PassiveIncubation    alpha=0.389 L1 ratio=0.100
+Electroporation      alpha=0.398 L1 ratio=0.100
+Saponin              alpha=0.489 L1 ratio=0.100
+FreezeThaw           alpha=0.623 L1 ratio=1.000
+Sonication           alpha=0.281 L1 ratio=0.100
+
+Best coefficients find by Leave-One-Out cross-validator:
+PassiveIncubation:
+LogP         7.7368
+MW           4.5630
+Solubility   3.4757
+HBD          -2.8137
+HBA          -3.2876
+PSA          -2.8291
+Charge       6.3172
+Intercept    60.3333
+
+Electroporation:
+LogP         -4.8101
+MW           -2.2780
+Solubility   -1.9769
+HBD          2.8030
+HBA          2.2530
+PSA          2.4427
+Charge       -4.3365
+Intercept    12.7857
+
+Saponin:
+LogP         -2.5058
+MW           -1.0138
+Solubility   -2.4879
+HBD          3.4556
+HBA          3.0873
+PSA          2.7955
+Charge       -5.2748
+Intercept    27.9048
+
+FreezeThaw:
+LogP         -5.3203
+MW           0.0000
+Solubility   -0.9338
+HBD          0.0000
+HBA          0.0000
+PSA          4.6270
+Charge       -0.0000
+Intercept    17.6667
+
+Sonication:
+LogP         -2.8859
+MW           -2.5505
+Solubility   -4.1854
+HBD          3.2587
+HBA          2.2710
+PSA          3.2588
+Charge       -3.6416
+Intercept    16.6190
+
+
+Measured and estimated/calculated fill methods:
+
+           DrugName  PassiveIncubation  PassiveIncubation_estimated
+0      Doxorubicin                 72                    71.018429
+1       Paclitaxel                 75                    73.725634
+2        Cisplatin                 65                    56.765364
+3      Gemcitabine                 68                    59.763111
+4        Docetaxel                 77                    74.307924
+5     Methotrexate                  5                    17.288500
+6       Riboflavin                  8                    40.050257
+7       Ampicillin                  3                    41.213350
+8       Furosemide                 70                    51.258890
+9         Warfarin                 72                    69.818462
+10         Digoxin                 65                    48.243502
+11     Chloroquine                 68                    81.400652
+12      Irinotecan                 71                    66.613702
+13  5-Fluorouracil                 55                    51.232498
+14        Caffeine                 52                    62.313178
+15       Quercetin                 69                    49.558844
+16     Resveratrol                 73                    65.081701
+17      Sildenafil                 74                    66.853629
+18        Curcumin                 76                    70.498039
+19     Pirarubicin                 70                    70.762763
+20       Tamoxifen                 79                    79.231570
+
+           DrugName  Electroporation  Electroporation_estimated
+0      Doxorubicin              8.0                   7.668104
+1       Paclitaxel              2.0                   5.467478
+2        Cisplatin              7.0                  10.990406
+3      Gemcitabine              9.0                  13.532405
+4        Docetaxel              1.5                   5.141109
+5     Methotrexate             52.0                  43.052253
+6       Riboflavin             48.0                  27.804265
+7       Ampicillin             55.0                  25.687344
+8       Furosemide              5.0                  18.221816
+9         Warfarin              3.0                   4.459223
+10         Digoxin             18.0                  24.953086
+11     Chloroquine              8.0                  -2.642664
+12      Irinotecan              5.0                   9.140180
+13  5-Fluorouracil             10.0                  16.512231
+14        Caffeine             11.0                   8.315646
+15       Quercetin              4.0                  21.339829
+16     Resveratrol              6.0                   8.714307
+17      Sildenafil              4.0                   8.213648
+18        Curcumin              2.0                   5.576833
+19     Pirarubicin              9.0                   7.857972
+20       Tamoxifen              1.0                  -1.505473
+
+           DrugName  Saponin  Saponin_estimated
+0      Doxorubicin       18          22.150587
+1       Paclitaxel       25          27.151072
+2        Cisplatin       12          17.728538
+3      Gemcitabine       22          22.364086
+4        Docetaxel       28          27.033105
+5     Methotrexate       68          59.436078
+6       Riboflavin       71          42.232287
+7       Ampicillin       74          41.887470
+8       Furosemide       20          34.223420
+9         Warfarin       18          18.785673
+10         Digoxin       35          45.584489
+11     Chloroquine       22          11.738186
+12      Irinotecan       24          27.873844
+13  5-Fluorouracil       15          25.480180
+14        Caffeine       14          17.720394
+15       Quercetin       19          37.643140
+16     Resveratrol       21          23.378083
+17      Sildenafil       20          24.569336
+18        Curcumin       26          22.248146
+19     Pirarubicin       19          22.627779
+20       Tamoxifen       15          14.144107
+
+           DrugName  FreezeThaw  FreezeThaw_estimated
+0      Doxorubicin          15             19.905271
+1       Paclitaxel          12             12.086561
+2        Cisplatin          18             18.981433
+3      Gemcitabine          22             21.472935
+4        Docetaxel          10             11.857616
+5     Methotrexate          32             34.345217
+6       Riboflavin          38             29.152067
+7       Ampicillin          35             21.918794
+8       Furosemide           8             17.315281
+9         Warfarin           9              9.981256
+10         Digoxin          40             30.112348
+11     Chloroquine          14              7.448406
+12      Irinotecan          11             14.813959
+13  5-Fluorouracil          19             21.119015
+14        Caffeine          21             17.230622
+15       Quercetin          12             21.077776
+16     Resveratrol          13             10.746089
+17      Sildenafil          10             14.226109
+18        Curcumin           9             11.694927
+19     Pirarubicin          16             20.117188
+20       Tamoxifen           7              5.397129
+
+           DrugName  Sonication  Sonication_estimated
+0      Doxorubicin           4              9.590272
+1       Paclitaxel           8             11.870016
+2        Cisplatin           6              9.381935
+3      Gemcitabine           7              7.065722
+4        Docetaxel           6             11.690758
+5     Methotrexate          45             44.276976
+6       Riboflavin          48             32.322252
+7       Ampicillin          51             29.349831
+8       Furosemide          15             22.430992
+9         Warfarin          11              9.425877
+10         Digoxin          38             31.809136
+11     Chloroquine          18              4.432362
+12      Irinotecan          13             15.405504
+13  5-Fluorouracil           9             17.655776
+14        Caffeine          11              8.749055
+15       Quercetin          14             28.022445
+16     Resveratrol          16             14.708389
+17      Sildenafil          12             13.450204
+18        Curcumin           7             12.552738
+19     Pirarubicin           5             10.316637
+20       Tamoxifen           5              4.493121
