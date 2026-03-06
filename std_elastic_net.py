@@ -13,29 +13,25 @@ l1_ratios_to_test = [0.01, 0.1, 0.3, 0.5, 0.7, 0.9, 0.99, 1.0]
 
 
 def find_best_parameters_loocv(csv_text):
-
     csv_file_like = io.StringIO(csv_text.strip())
     df = pd.read_csv(csv_file_like)
     df = df.dropna(subset=FEATURES + METHODS)
 
-    # Extract the material features
-    feature_values = df[FEATURES]
-
     # Standardize the features
     scaler = StandardScaler()
-    scaled_feature_values = scaler.fit_transform(feature_values)
+    scaled_feature_values = scaler.fit_transform(df[FEATURES])
 
     # Initialize the Leave-One-Out cross-validator
     loo = LeaveOneOut()
 
+    # Initialize the results
     hyper_params = {}
     coeffs = {}
 
-    # Iterate over the filling methods
+    # Iterate over the filling methods and find the best parameters
     for method in METHODS:
         method_values = df[method]
 
-        # Pass the 'loo' object to the cv parameter instead of a number
         model = ElasticNetCV(l1_ratio=l1_ratios_to_test, cv=loo, random_state=42)
         model.fit(scaled_feature_values, method_values)
 
@@ -47,12 +43,10 @@ def find_best_parameters_loocv(csv_text):
 
 
 def evaulate_model(csv_text, coeffs):
-    # Load the datasets
     csv_file_like = io.StringIO(csv_text.strip())
     df = pd.read_csv(csv_file_like)
     df = df.dropna(subset=FEATURES + METHODS)
 
-    # Standardize the features
     scaler = StandardScaler()
     scaled_feature_values = scaler.fit_transform(df[FEATURES])
 
@@ -68,17 +62,22 @@ if __name__ == "__main__":
     with open('input_data/table.csv','r',encoding='utf-8-sig') as f:
         text = f.read()
 
-    coeffs, _ = find_best_parameters_loocv(text)
+    coeffs, hyper_parameters = find_best_parameters_loocv(text)
     df_all_in_one = evaulate_model(text, coeffs=coeffs)
 
-    print("Best coefficients by Leave-One-Out cross-validator")
+    print("Best hyper-parameters find by Leave-One-Out cross-validator:")
+    for m, p in hyper_parameters.items():
+        print(f"{m:<20}", f"alpha={p['alpha']:.3f}", f"L1 ratio={p['l1_ratio']:.3f}")
+
+
+    print("\nBest coefficients find by Leave-One-Out cross-validator:")
     for m, c in coeffs.items():
         print(f"{m}:")
         for key, value in c.items():
-            print(f"{key:<12}", value)
-        print("--"*20)
+            print(f"{key:<12}", f"{value:.4f}")
+        print("")
 
-    print("Estimated and measured fill methods")
+    print("\nMeasured and estimated/calculated fill methods:")
     for m in METHODS:
-        print(df_all_in_one[["DrugName",m,f"{m}_estimated"]])
+        print("\n",df_all_in_one[["DrugName",m,f"{m}_estimated"]])
 
